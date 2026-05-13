@@ -1,0 +1,64 @@
+body {
+  background-color: black;
+}
+
+.placeholder {
+  position: absolute;
+  top: 520px;
+  left: 120px;
+  width: 165px;
+  height: 40px;
+  font-size: 25px;
+  border-radius: 8px;
+  background-color: #f9ee60;
+  border-color: #f9ee60;
+}
+
+.pokeimg {
+   width: 400px;
+  height: 500px;
+  position: absolute;
+  top: 140px;
+  left: 450px;
+}
+
+.pokeimg1 {
+  width: 250px;
+  height: 420px;
+  position: absolute;
+   top: 150px !important;  
+  left: 850px !important;
+  text-align: left;
+  border-radius: 8px;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  text-shadow: 1px 1px 1px rgba(153, 102, 255, 0.5);
+}
+
+.boton {
+  .boton {
+  width: 73px;
+  height: 530px;
+  background-color: #00aaf7;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: 11px;
+  line-height: 32px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 160px;   
+  top: 600px;   
+  opacity: 1;   
+}
+}
+
+.grafica {
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  left: 560px;
+  top: 242px;
+
+}
