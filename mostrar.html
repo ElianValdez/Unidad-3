@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mostrar JSON</title>
+
+<style>
+:root{
+    --color-de-boton: #0f172a;     
+    --color-de-letra: #e2e8f0;      
+    --color-de-barra: #1e293b;      
+    --color-de-fondo: #1e3a8a;      
+    --color-extra: #334155;         
+}
+
+body{
+    background-color: var(--color-de-fondo);
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+table{ 
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    border-bottom: 1px solid var(--color-de-barra);
+}
+
+th{
+    background-color: var(--color-de-barra);
+}
+
+tr:nth-child(even){
+    background-color: var(--color-extra);
+}
+
+img{
+    width: 120px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Tabla de Superhéroes (JSON)</h1>
+
+<table id="tabla">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Personaje</th>
+<th>Altura</th>
+<th>Peso</th>
+<th>Poderes</th>
+<th>Sexo</th>
+<th>Debilidad</th>
+<th>Creación</th>
+<th>Biografía</th>
+<th>Imagen</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+</table>
+
+<script>
+let data = JSON.parse(localStorage.getItem("superheroes")) || [];
+
+const tabla = document.querySelector("#tabla tbody");
+
+function render(){
+    tabla.innerHTML = "";
+
+    data.forEach((hero, index) => {
+
+        tabla.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${hero.nombre}</td>
+            <td>${hero.personaje}</td>
+            <td>${hero.altura}</td>
+            <td>${hero.peso}</td>
+            <td>${hero.poderes}</td>
+            <td>${hero.sexo}</td>
+            <td>${hero.debilidad}</td>
+            <td>${hero.creacion}</td>
+            <td>${hero.biografia}</td>
+            <td>${hero.imagen ? `<img src="${hero.imagen}">` : "Sin imagen"}</td>
+            <td>
+                <button onclick="eliminar(${index})">❌</button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+// eliminar registro
+function eliminar(index){
+    data.splice(index, 1);
+    localStorage.setItem("superheroes", JSON.stringify(data));
+    render();
+}
+
+// cargar al inicio
+render();
+</script>
+
+</body>
+</html>

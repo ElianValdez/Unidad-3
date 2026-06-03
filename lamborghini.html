@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini Explorer | Descubre la Excelencia Italiana</title>
+    <link rel="stylesheet" href="lamborghini.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particulas de fondo -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,5 95,50 50,95 5,50" stroke="currentColor" stroke-width="3" fill="none"/>
+                    <text x="50" y="58" text-anchor="middle" fill="currentColor" font-size="24" font-weight="bold">L</text>
+                </svg>
+            </div>
+            <span class="logo-text">LAMBORGHINI</span>
+        </div>
+        <nav class="nav">
+            <a href="#modelos" class="nav-link">Modelos</a>
+            <a href="#specs" class="nav-link">Especificaciones</a>
+            <a href="#galeria" class="nav-link">Galeria</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">SINCE 1963</div>
+            <h1 class="hero-title">
+                <span class="title-line">EXPLORA LA</span>
+                <span class="title-line gold">PERFECCION</span>
+                <span class="title-line">ITALIANA</span>
+            </h1>
+            <p class="hero-subtitle">Descubre los superdeportivos mas exclusivos del mundo. Potencia, diseno y tecnologia en perfecta armonia.</p>
+            
+            <!-- Buscador Principal -->
+            <div class="search-container">
+                <div class="search-box">
+                    <div class="search-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Buscar modelo, año, especificaciones...">
+                    <button id="searchBtn" class="search-btn">
+                        <span>BUSCAR</span>
+                        <div class="btn-shine"></div>
+                    </button>
+                </div>
+                <div class="search-tags">
+                    <span class="tag" data-search="Huracan">Huracan</span>
+                    <span class="tag" data-search="Aventador">Aventador</span>
+                    <span class="tag" data-search="Urus">Urus</span>
+                    <span class="tag" data-search="Revuelto">Revuelto</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-car">
+            <div class="car-glow"></div>
+            <img src="https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Lamborghini" class="hero-car-img">
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">1015</span>
+                <span class="stat-label">CV Potencia</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2.5</span>
+                <span class="stat-label">0-100 km/h</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">350</span>
+                <span class="stat-label">Vel. Maxima km/h</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados de busqueda -->
+    <section class="results-section" id="results">
+        <div class="results-header">
+            <h2 class="results-title">Resultados de Busqueda</h2>
+            <span class="results-count" id="resultsCount"></span>
+        </div>
+        <div class="results-grid" id="resultsGrid">
+            <!-- Los resultados se cargaran aqui -->
+        </div>
+        <div class="no-results" id="noResults" style="display: none;">
+            <div class="no-results-icon">🏎️</div>
+            <p>No se encontraron resultados para tu busqueda.</p>
+        </div>
+    </section>
+
+    <!-- Modelos Section -->
+    <section class="models-section" id="modelos">
+        <div class="section-header">
+            <span class="section-tag">COLECCION 2024</span>
+            <h2 class="section-title">MODELOS <span class="gold">LEGENDARIOS</span></h2>
+        </div>
+        
+        <div class="models-grid">
+            <div class="model-card featured">
+                <div class="model-badge">NUEVO</div>
+                <div class="model-image">
+                    <img src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Revuelto">
+                    <div class="model-overlay">
+                        <button class="view-btn" data-model="Revuelto">Ver Detalles</button>
+                    </div>
+                </div>
+                <div class="model-info">
+                    <h3 class="model-name">REVUELTO</h3>
+                    <p class="model-specs">V12 Hibrido | 1015 CV | 350+ km/h</p>
+                    <div class="model-price">Desde €608,000</div>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <div class="model-image">
+                    <img src="https://images.pexels.com/photos/1141816/pexels-photo-1141816.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Huracan">
+                    <div class="model-overlay">
+                        <button class="view-btn" data-model="Huracan Tecnica">Ver Detalles</button>
+                    </div>
+                </div>
+                <div class="model-info">
+                    <h3 class="model-name">HURACAN TECNICA</h3>
+                    <p class="model-specs">V10 | 640 CV | 325 km/h</p>
+                    <div class="model-price">Desde €262,000</div>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <div class="model-image">
+                    <img src="https://images.pexels.com/photos/3802523/pexels-photo-3802523.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Urus">
+                    <div class="model-overlay">
+                        <button class="view-btn" data-model="Urus Performante">Ver Detalles</button>
+                    </div>
+                </div>
+                <div class="model-info">
+                    <h3 class="model-name">URUS PERFORMANTE</h3>
+                    <p class="model-specs">V8 Twin-Turbo | 666 CV | 306 km/h</p>
+                    <div class="model-price">Desde €248,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="specs-section" id="specs">
+        <div class="specs-content">
+            <div class="specs-text">
+                <span class="section-tag">TECNOLOGIA</span>
+                <h2 class="section-title">INGENIERIA <span class="gold">SUPREMA</span></h2>
+                <p class="specs-description">
+                    Cada Lamborghini es una obra maestra de ingenieria italiana. 
+                    Motores de alto rendimiento, aerodinamica activa y materiales 
+                    de ultima generacion se combinan para crear la experiencia 
+                    de conduccion definitiva.
+                </p>
+                
+                <div class="specs-list">
+                    <div class="spec-item">
+                        <div class="spec-icon">⚡</div>
+                        <div class="spec-detail">
+                            <h4>Motor V12 Hibrido</h4>
+                            <p>1015 CV de potencia combinada</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-icon">🔧</div>
+                        <div class="spec-detail">
+                            <h4>Chasis en Carbono</h4>
+                            <p>Monocasco ultraligero de fibra de carbono</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-icon">🎯</div>
+                        <div class="spec-detail">
+                            <h4>Aerodinamica Activa</h4>
+                            <p>Sistema ALA 2.0 de ultima generacion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specs-visual">
+                <div class="engine-display">
+                    <img src="https://images.pexels.com/photos/3368977/pexels-photo-3368977.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Motor Lamborghini">
+                    <div class="engine-stats">
+                        <div class="engine-stat">
+                            <span class="es-value">9,500</span>
+                            <span class="es-label">RPM Max</span>
+                        </div>
+                        <div class="engine-stat">
+                            <span class="es-value">1,015</span>
+                            <span class="es-label">CV Potencia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">LAMBORGHINI</span>
+                <p class="footer-tagline">Expect the unexpected</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Configurador</a>
+                <a href="#">Concesionarios</a>
+                <a href="#">Museo</a>
+                <a href="#">Motorsport</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link">IG</a>
+                <a href="#" class="social-link">FB</a>
+                <a href="#" class="social-link">YT</a>
+                <a href="#" class="social-link">TW</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Automobili Lamborghini S.p.A. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Base de datos de Lamborghinis con imágenes de Pexels (100% funcionales)
+        const lamborghiniDB = [
+            {
+                id: 1,
+                name: "Revuelto",
+                year: 2024,
+                engine: "V12 Hibrido",
+                power: "1015 CV",
+                speed: "350+ km/h",
+                acceleration: "2.5s",
+                price: "€608,000",
+                image: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Superdeportivo",
+                description: "El nuevo buque insignia de Lamborghini con tecnologia hibrida revolucionaria."
+            },
+            {
+                id: 2,
+                name: "Huracan Tecnica",
+                year: 2024,
+                engine: "V10 5.2L",
+                power: "640 CV",
+                speed: "325 km/h",
+                acceleration: "3.2s",
+                price: "€262,000",
+                image: "https://images.pexels.com/photos/1141816/pexels-photo-1141816.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Superdeportivo",
+                description: "Rendimiento puro con traccion trasera y diseno agresivo."
+            },
+            {
+                id: 3,
+                name: "Huracan STO",
+                year: 2023,
+                engine: "V10 5.2L",
+                power: "640 CV",
+                speed: "310 km/h",
+                acceleration: "3.0s",
+                price: "€330,000",
+                image: "https://images.pexels.com/photos/3802512/pexels-photo-3802512.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Superdeportivo",
+                description: "Super Trofeo Omologata - tecnologia de carreras para la calle."
+            },
+            {
+                id: 4,
+                name: "Urus Performante",
+                year: 2024,
+                engine: "V8 Twin-Turbo 4.0L",
+                power: "666 CV",
+                speed: "306 km/h",
+                acceleration: "3.3s",
+                price: "€248,000",
+                image: "https://images.pexels.com/photos/3802523/pexels-photo-3802523.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Super SUV",
+                description: "El SUV mas deportivo del mundo con rendimiento extremo."
+            },
+            {
+                id: 5,
+                name: "Urus S",
+                year: 2024,
+                engine: "V8 Twin-Turbo 4.0L",
+                power: "666 CV",
+                speed: "305 km/h",
+                acceleration: "3.5s",
+                price: "€228,000",
+                image: "https://images.pexels.com/photos/3802524/pexels-photo-3802524.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Super SUV",
+                description: "Lujo y deportividad en perfecta armonia."
+            },
+            {
+                id: 6,
+                name: "Aventador LP 780-4 Ultimae",
+                year: 2022,
+                engine: "V12 6.5L",
+                power: "780 CV",
+                speed: "355 km/h",
+                acceleration: "2.8s",
+                price: "€500,000",
+                image: "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Superdeportivo",
+                description: "La edicion final del legendario Aventador con V12 atmosferico."
+            },
+            {
+                id: 7,
+                name: "Huracan EVO",
+                year: 2023,
+                engine: "V10 5.2L",
+                power: "640 CV",
+                speed: "325 km/h",
+                acceleration: "2.9s",
+                price: "€280,000",
+                image: "https://images.pexels.com/photos/3802518/pexels-photo-3802518.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Superdeportivo",
+                description: "Evolucion perfecta con sistema LDVI de ultima generacion."
+            },
+            {
+                id: 8,
+                name: "Countach LPI 800-4",
+                year: 2022,
+                engine: "V12 Hibrido",
+                power: "814 CV",
+                speed: "355 km/h",
+                acceleration: "2.8s",
+                price: "€2,000,000",
+                image: "https://images.pexels.com/photos/3802514/pexels-photo-3802514.jpeg?auto=compress&cs=tinysrgb&w=400",
+                category: "Edicion Limitada",
+                description: "Homenaje al iconico Countach con tecnologia moderna."
+            }
+        ];
+
+        // Función de búsqueda
+        function searchLamborghini(query) {
+            const searchTerm = query.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                return [];
+            }
+
+            return lamborghiniDB.filter(car => {
+                return (
+                    car.name.toLowerCase().includes(searchTerm) ||
+                    car.year.toString().includes(searchTerm) ||
+                    car.engine.toLowerCase().includes(searchTerm) ||
+                    car.category.toLowerCase().includes(searchTerm) ||
+                    car.power.toLowerCase().includes(searchTerm) ||
+                    car.description.toLowerCase().includes(searchTerm)
+                );
+            });
+        }
+
+        // Función para mostrar detalles del modelo
+        function showModelDetails(modelName) {
+            const model = lamborghiniDB.find(car => 
+                car.name.toLowerCase() === modelName.toLowerCase()
+            );
+            
+            if (model) {
+                alert(`🔧 MODELO: ${model.name}\n📅 Año: ${model.year}\n⚡ Motor: ${model.engine}\n💪 Potencia: ${model.power}\n🏁 Velocidad Máxima: ${model.speed}\n🚀 0-100 km/h: ${model.acceleration}\n💰 Precio: ${model.price}\n\n📝 ${model.description}`);
+            } else {
+                alert(`Modelo ${modelName} no encontrado.`);
+            }
+        }
+
+        // Función para configurar modelo
+        function configurarModelo(modelName) {
+            alert(`🎨 CONFIGURADOR ${modelName}\n\nPersonaliza tu Lamborghini:\n✓ Colores exclusivos\n✓ Acabados en carbono\n✓ Sistema de sonido premium\n✓ Asientos deportivos\n✓ Frenos cerámicos\n\nVisita nuestro concesionario para más información.`);
+        }
+
+        // Renderizar resultados
+        function renderResults(results) {
+            const resultsGrid = document.getElementById('resultsGrid');
+            const resultsSection = document.getElementById('results');
+            const resultsCount = document.getElementById('resultsCount');
+            const noResults = document.getElementById('noResults');
+
+            if (resultsSection) resultsSection.style.display = 'block';
+            
+            if (results.length === 0) {
+                if (resultsGrid) resultsGrid.innerHTML = '';
+                if (noResults) noResults.style.display = 'block';
+                if (resultsCount) resultsCount.textContent = '0 resultados';
+                return;
+            }
+
+            if (noResults) noResults.style.display = 'none';
+            if (resultsCount) resultsCount.textContent = `${results.length} resultado${results.length > 1 ? 's' : ''}`;
+
+            if (resultsGrid) {
+                resultsGrid.innerHTML = results.map(car => `
+                    <div class="result-card">
+                        <div class="result-image">
+                            <img src="${car.image}" alt="${car.name}">
+                            <span class="result-year">${car.year}</span>
+                        </div>
+                        <div class="result-info">
+                            <span class="result-category">${car.category}</span>
+                            <h3 class="result-name">${car.name}</h3>
+                            <p class="result-description">${car.description}</p>
+                            <div class="result-specs">
+                                <div class="result-spec">
+                                    <span class="spec-value">${car.power}</span>
+                                    <span class="spec-name">Potencia</span>
+                                </div>
+                                <div class="result-spec">
+                                    <span class="spec-value">${car.acceleration}</span>
+                                    <span class="spec-name">0-100 km/h</span>
+                                </div>
+                                <div class="result-spec">
+                                    <span class="spec-value">${car.speed}</span>
+                                    <span class="spec-name">Vel. Max</span>
+                                </div>
+                            </div>
+                            <div class="result-footer">
+                                <span class="result-price">${car.price}</span>
+                                <button class="result-btn" data-model="${car.name}">Configurar</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Agregar event listeners a los botones de configurar
+                document.querySelectorAll('.result-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        configurarModelo(this.getAttribute('data-model'));
+                    });
+                });
+            }
+
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Event Listeners
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            const query = document.getElementById('searchInput').value;
+            renderResults(searchLamborghini(query));
+        });
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = document.getElementById('searchInput').value;
+                renderResults(searchLamborghini(query));
+            }
+        });
+
+        // Tags de búsqueda rápida
+        document.querySelectorAll('.tag').forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                const searchTerm = this.getAttribute('data-search');
+                document.getElementById('searchInput').value = searchTerm;
+                renderResults(searchLamborghini(searchTerm));
+            });
+        });
+
+        // Botones "Ver Detalles"
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                showModelDetails(this.getAttribute('data-model'));
+            });
+        });
+
+        // Crear partículas de fondo
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+        document.getElementById('results').style.display = 'none';
+    </script>
+</body>
+</html>

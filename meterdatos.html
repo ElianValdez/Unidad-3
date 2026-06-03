@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Superhéroes | Marvel-System</title>
+
+<style>
+:root {
+    --color-de-fondo: #0d0d0d;
+    --color-de-letras: #e62429;
+    --color-de-botones: #e62429;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.blogs.es/f824b1/new-project-3-1-/1200_900.jpeg') center/cover no-repeat;
+    filter: brightness(0.4);
+    z-index: -1;
+}
+
+h1 {
+    color: var(--color-de-letras);
+    text-align: center;
+}
+
+form {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0,0,0,0.85);
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid var(--color-de-letras);
+}
+
+label {
+    color: var(--color-de-letras);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+}
+
+button {
+    background: var(--color-de-botones);
+    color: white;
+    padding: 15px;
+    border: none;
+    width: 100%;
+}
+
+#mensaje {
+    text-align: center;
+    margin-top: 10px;
+    color: lime;
+}
+</style>
+</head>
+
+<body>
+
+<form id="formMarvel">
+<h1>Archivo Marvel</h1>
+
+<input type="number" id="id" placeholder="ID del Héroe" required>
+<input type="text" id="nombre" placeholder="Nombre Real" required>
+<input type="text" id="personaje" placeholder="Alias" required>
+<input type="text" id="altura" placeholder="Altura" required>
+<input type="number" id="edad" placeholder="Edad" required>
+<input type="text" id="peso" placeholder="Peso" required>
+<textarea id="poderes" placeholder="Poderes" required></textarea>
+<textarea id="debilidad" placeholder="Debilidad" required></textarea>
+<input type="text" id="sexo" placeholder="Sexo" required>
+<input type="date" id="creacion" required>
+<textarea id="biografia" placeholder="Biografía" required></textarea>
+
+<button type="submit">Guardar en Marvel-Base</button>
+
+<div id="mensaje"></div>
+</form>
+
+<script>
+// cargar base JSON
+let heroes = JSON.parse(localStorage.getItem("marvelHeroes")) || [];
+
+document.getElementById("formMarvel").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const hero = {
+        id: document.getElementById("id").value,
+        nombre: document.getElementById("nombre").value,
+        personaje: document.getElementById("personaje").value,
+        altura: document.getElementById("altura").value,
+        edad: document.getElementById("edad").value,
+        peso: document.getElementById("peso").value,
+        poderes: document.getElementById("poderes").value.split(",").map(p => p.trim()),
+        debilidad: document.getElementById("debilidad").value,
+        sexo: document.getElementById("sexo").value,
+        creacion: document.getElementById("creacion").value,
+        biografia: document.getElementById("biografia").value
+    };
+
+    heroes.push(hero);
+
+    localStorage.setItem("marvelHeroes", JSON.stringify(heroes));
+
+    document.getElementById("mensaje").innerText = "✅ Guardado en JSON correctamente";
+
+    document.getElementById("formMarvel").reset();
+
+    console.log(heroes);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/black-hoops" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/neon-club-music" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Elian Alejandro Valdez Diaz</title>
+
+<style>
+:root{
+    --color-de-fondo: #DF087E;
+    --color-de-letras: #6F3E5E;
+    --color-de-barra: #A31E21;
+    --color-extra: #0A0A0A;
+}
+
+body{
+    background-color: #000000;
+}
+
+h1{
+    font-family: 'NEON CLUB MUSIC', sans-serif;
+    color: #f6a700;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color: #f6a700;
+}
+
+input, textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #f6a700;
+    background-color: #1f1f1f;
+    color: yellow;
+    text-align: center;
+}
+
+button {
+    background-color: #f6a700;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#mensaje {
+    margin-top: 10px;
+    color: lime;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('gambit.jpg') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Agregar Personaje de Marvel</h1>
+
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="alias" placeholder="Alias" required>
+        <input type="date" id="fecha_creacion" required>
+        <textarea id="descripcion" placeholder="Descripción" required></textarea>
+        <input type="text" id="comics" placeholder="Comics (separados por comas)" required>
+        <input type="text" id="superpoderes" placeholder="Superpoderes (separados por comas)" required>
+
+        <button type="submit">Guardar Personaje</button>
+    </form>
+
+    <div id="mensaje"></div>
+</div>
+
+<script>
+// Cargar datos existentes o iniciar vacío
+let personajes = JSON.parse(localStorage.getItem("marvel")) || [];
+
+// Evento submit
+document.getElementById("formulario").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const personaje = {
+        nombre: document.getElementById("nombre").value,
+        alias: document.getElementById("alias").value,
+        fecha_creacion: document.getElementById("fecha_creacion").value,
+        descripcion: document.getElementById("descripcion").value,
+        comics: document.getElementById("comics").value.split(",").map(c => c.trim()),
+        superpoderes: document.getElementById("superpoderes").value.split(",").map(p => p.trim())
+    };
+
+    // Guardar en arreglo
+    personajes.push(personaje);
+
+    // Guardar en JSON (localStorage)
+    localStorage.setItem("marvel", JSON.stringify(personajes));
+
+    // Mensaje
+    document.getElementById("mensaje").innerText = "✅ Personaje guardado en JSON";
+
+    // Limpiar formulario
+    document.getElementById("formulario").reset();
+
+    console.log(personajes);
+});
+</script>
+
+</body>
+</html>

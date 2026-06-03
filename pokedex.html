@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokedex.css">
+    <title>Pokedex</title>
+</head>
+<body>
+
+    <h1>MAESTRO POKEMON: ELIAN ALEJANDRO</h1>
+
+    <img src="./pokemon1.jpg" width="400px" class="pokeimg1 banner-img">
+
+    <div class="search-row">
+        <input type="text" placeholder="pikachu" id="pokeName" name="pokeName" class="placeholder">
+        <button onclick="fetchPokemon()" class="button">Presiona</button>
+    </div>
+
+    <div class="pokedex-card">
+
+        <!-- LEFT COLUMN -->
+        <div class="card-left">
+            <div class="id-badge">
+                <div id="pokeid" class="pokeimg1"></div>
+                <div id="pokeorder" class="pokeimg1"></div>
+            </div>
+
+            <img src="./pokeball.jpg" alt="Pokemaster" id="pokeImg" width="250px" class="pokeimg">
+
+            <div id="pokeName" class="pokeimg1 info-name"></div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="card-right">
+
+            <div class="info-section">
+                <div id="pokeHe" class="pokeimg1 info-row"></div>
+                <div id="pokeWe" class="pokeimg1 info-row"></div>
+                <div id="pokeType" class="pokeimg1 info-row"></div>
+                <div id="pokeitem" class="pokeimg1 info-row"></div>
+            </div>
+
+            <div class="moves-section">
+                <div class="moves-label">MOVES</div>
+                <div id="pokemove1" class="pokeimg1 info-row"></div>
+                <div id="pokemove2" class="pokeimg1 info-row"></div>
+                <div id="pokemove3" class="pokeimg1 info-row"></div>
+                <div id="pokemove4" class="pokeimg1 info-row"></div>
+            </div>
+
+            <div class="grafica">
+                <canvas id="miCanvas"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="pokedex.js"></script>
+    <script src="Chart.js"></script>
+</body>
+</html>

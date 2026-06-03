@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Relaciones Marvel JSON</title>
+
+<style>
+body{
+    background: black;
+    color: white;
+    font-family: Arial;
+}
+
+h1{
+    text-align: center;
+    color: yellow;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 10px;
+    border-bottom: 1px solid red;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Personajes de Marvel (Relaciones JSON)</h1>
+
+<table id="tabla">
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Alias</th>
+<th>Fecha</th>
+<th>Descripción</th>
+<th>Comics</th>
+<th>Superpoderes</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+</table>
+
+<script>
+// 🔥 base de datos JSON (la que ya hiciste)
+let data = JSON.parse(localStorage.getItem("marvelDB")) || [];
+
+const tabla = document.querySelector("#tabla tbody");
+
+// renderizar tabla
+function render(){
+    tabla.innerHTML = "";
+
+    data.forEach((p, index) => {
+        tabla.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${p.nombre}</td>
+            <td>${p.alias}</td>
+            <td>${p.fecha_creacion}</td>
+            <td>${p.descripcion}</td>
+            <td>${p.comics.join(", ")}</td>
+            <td>${p.superpoderes.join(", ")}</td>
+            <td>
+                <button onclick="eliminar(${index})">❌</button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+// eliminar
+function eliminar(index){
+    data.splice(index, 1);
+    localStorage.setItem("marvelDB", JSON.stringify(data));
+    render();
+}
+
+// cargar
+render();
+</script>
+
+</body>
+</html>
